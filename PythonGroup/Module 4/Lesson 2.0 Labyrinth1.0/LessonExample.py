@@ -5,7 +5,7 @@ from os import path
 img_dir = path.join(path.dirname(__file__), 'img') 
 WIDTH = 480
 HEIGHT = 600
-FPS = 15  
+FPS = 60  
 
 # Задаем цвета
 WHITE = (255, 255, 255)
@@ -23,7 +23,8 @@ clock = pygame.time.Clock()
 
 class Player(pygame.sprite.Sprite):
     speedx = 0
-    speedy = 0
+    speedy = 0 
+
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.transform.scale(player_img, (50, 38))
@@ -33,19 +34,20 @@ class Player(pygame.sprite.Sprite):
         self.rect.bottom = HEIGHT - 10
         self.speedx = 0
         self.speedy = 0
+
     def update(self):
         # обработка нажатия клавиш
         self.speedx = 0
         self.speedy = 0
         keystate = pygame.key.get_pressed()
         if keystate[pygame.K_LEFT]:
-            self.speedx = -8
+            self.speedx = -2
         if keystate[pygame.K_RIGHT]:
-            self.speedx = 8
+            self.speedx = 2
         if keystate[pygame.K_UP]:
-            self.speedy = -8
+            self.speedy = -2
         if keystate[pygame.K_DOWN]:
-            self.speedy = 8
+            self.speedy = 2
 
         self.rect.x += self.speedx
         self.rect.y += self.speedy 

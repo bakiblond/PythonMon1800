@@ -57,6 +57,16 @@ class Player(pygame.sprite.Sprite):
         if self.rect.left < 0:
             self.rect.left = 0 
 
+        if self.rect.top < 0:
+            self.rect.top = 0
+        if self.rect.bottom > HEIGHT:
+            self.rect.bottom = HEIGHT 
+
+        #if self.rect.top > HEIGHT:
+            #self.rect.top = 0
+        #if self.rect.bottom < 0:
+            #self.rect.bottom = HEIGHT 
+
 
 background = pygame.image.load(path.join(img_dir, "labyrinth_field.png")).convert()
 background_rect = background.get_rect()

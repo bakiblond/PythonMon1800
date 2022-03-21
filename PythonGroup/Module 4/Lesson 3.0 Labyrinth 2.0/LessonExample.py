@@ -94,12 +94,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     all_sprites.update()   
-    if win:
-        DrawWin()
-    else:
-        DrawGame() 
-    if player.rect.y < 166:
-        win = True 
+    
+    print(player.rect.y)
+         
 
 
 

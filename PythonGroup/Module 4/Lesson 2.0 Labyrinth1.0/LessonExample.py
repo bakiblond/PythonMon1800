@@ -3,7 +3,7 @@ import pygame
 from os import path
 
 img_dir = path.join(path.dirname(__file__), 'img') 
-WIDTH = 480
+WIDTH = 600
 HEIGHT = 600
 FPS = 15  
 
@@ -26,10 +26,9 @@ class Player(pygame.sprite.Sprite):
     speedy = 0
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.transform.scale(player_img, (50, 38))
+        self.image = pygame.transform.scale(player_img, (25, 25))
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
-        self.rect.centerx = WIDTH / 2
         self.rect.bottom = HEIGHT - 10
         self.speedx = 0
         self.speedy = 0

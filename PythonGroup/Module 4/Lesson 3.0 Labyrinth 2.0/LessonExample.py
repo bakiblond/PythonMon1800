@@ -93,10 +93,14 @@ while running:
         # проверка для закрытия окна
         if event.type == pygame.QUIT:
             running = False
-    all_sprites.update()   
-    
+    all_sprites.update()
+    if win == False:
+        DrawGame()
+    else:
+        DrawWin()
+    win = player.rect.y < 166
     print(player.rect.y)
-         
+     
 
 
 

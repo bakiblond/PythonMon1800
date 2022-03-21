@@ -21,6 +21,20 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Labyrinth / Demo ")
 clock = pygame.time.Clock()
 
+class Wall(pygame.sprite.Sprite):
+    def __init__(self, posX,poxY):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.transform.scale(wall_img, (50, 38))
+        self.image.set_colorkey(BLACK)
+        self.rect = self.image.get_rect()
+        self.rect.centerx = WIDTH / 2
+        self.rect.bottom = HEIGHT - 10
+        self.rect.x = posX
+        self.rect.y = poxY
+    posX = 0 
+    posY = 0
+
+
 class Player(pygame.sprite.Sprite):
     speedx = 0
     speedy = 0
@@ -77,10 +91,14 @@ def DrawGame():
 background = pygame.image.load(path.join(img_dir, "labyrinth_field.png")).convert()
 background_rect = background.get_rect()
 player_img = pygame.image.load(path.join(img_dir, "player.png")).convert() 
+wall_img =  pygame.image.load(path.join(img_dir, "wall.png")).convert() 
+
 
 all_sprites = pygame.sprite.Group() 
 player = Player()
+wall = Wall(50,300)
 all_sprites.add(player) 
+all_sprites.add(wall)
 
 # Цикл игры
 running = True
@@ -94,7 +112,15 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     all_sprites.update()   
-    
+    if win == False:
+        DrawGame()
+    else:
+        DrawWin()
+    win = player.rect.y < 166
+
+    if sprite.collide_rect(player,wall):
+        DrawWin()
+
     print(player.rect.y)
          
 

@@ -25,7 +25,7 @@ clock = pygame.time.Clock()
 img_dir = path.join(path.dirname(__file__),"img")
 background = pygame.image.load(path.join(img_dir,"field.png")).convert()
 background_rect = background.get_rect() 
-player_img = pygame.image.load(path.join(img_dir,"player.png")).convert()
+player_img = pygame.image.load(path.join(img_dir,"ship.png")).convert()
 npc_img = pygame.image.load(path.join(img_dir,"npc.png")).convert()
 bullet_img = pygame.image.load(path.join(img_dir,"bullet.png")).convert()
 

@@ -32,6 +32,7 @@ bullet_img = pygame.image.load(path.join(img_dir,"bullet.png")).convert()
 #player class
 class Player(pygame.sprite.Sprite):
     def __init__(self):
+        self.score = 0
         pygame.sprite.Sprite.__init__(self)
         player_size = (50,50)
         self.image = pygame.transform.scale(player_img,player_size)
